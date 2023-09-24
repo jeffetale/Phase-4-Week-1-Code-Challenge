@@ -14,3 +14,5 @@ db = SQLAlchemy(app)
 from lib.models import Restaurant, Pizza, RestaurantPizza
 
 migrate = Migrate(app, db)
+
+from lib import routes
