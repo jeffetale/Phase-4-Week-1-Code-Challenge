@@ -1,7 +1,8 @@
-from lib import db, api
+from flask import request
 from flask_restful import Resource, reqparse
 from lib.models import db, Restaurant, Pizza, RestaurantPizza
 from lib.serializer import serialize_restaurant, serialize_pizza, serialize_restaurant_pizza
+from lib import db, api
 
 parser = reqparse.RequestParser()
 parser.add_argument('name')
@@ -56,9 +57,32 @@ class RestaurantPizzaList(Resource):
     def get(self):
         restaurant_pizzas = RestaurantPizza.query.all()
         return ([serialize_restaurant_pizza(restaurant_pizza) for restaurant_pizza in restaurant_pizzas])
+
+class RestaurantPizzaData(Resource):
+    def post(self):
+        data = request.get_json()
+
+        pizza = Pizza.query.get(data['pizza_id'])
+        restaurant = Restaurant.query.get(data['restaurant_id'])
+
+        if pizza is None or restaurant is None:
+            return {"errors": ["validation errors"]}, 400
+
+        restaurant_pizza = RestaurantPizza(
+            price=data['price'],
+            pizza_id=data['pizza_id'],
+            restaurant_id=data['restaurant_id']
+        )
+
+        db.session.add(restaurant_pizza)
+        db.session.commit()
+
+        return serialize_pizza(pizza), 201
+
     
 api.add_resource(RestaurantList, "/restaurants")
 api.add_resource(RestaurantData, "/restaurants/<int:id>")
 api.add_resource(PizzaList, "/pizzas")
 api.add_resource(PizzaData, "/pizzas/<int:id>")
 api.add_resource(RestaurantPizzaList, "/restaurant_pizzas")
+api.add_resource(RestaurantPizzaData, "/restaurant_pizzas")
