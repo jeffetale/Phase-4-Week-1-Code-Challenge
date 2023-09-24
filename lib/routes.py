@@ -25,6 +25,17 @@ class RestaurantData(Resource):
             return serialize_restaurant(restaurant), 200
         else:
             return {"message": "Restaurant not found"}, 404
+        
+    def delete(self, id):
+        restaurant = Restaurant.query.get(int(id))
+        if restaurant is None:
+            return {"error": "Restaurant not found"}, 404
+
+        RestaurantPizza.query.filter_by(restaurant_id=id).delete()
+        db.session.delete(restaurant)
+        db.session.commit()
+
+        return '', 204
     
 
 class PizzaList(Resource):

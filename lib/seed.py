@@ -20,7 +20,8 @@ with app.app_context():
 
     for p in range(10):
         pizza = Pizza(
-            name = fake.word(ext_word_list = ['Margherita', 'Pepperoni', 'Hawaiian', 'BBQ Chicken', 'Chicken Periperi', 'Chicken Tikka', 'Boerewors']),
+            name = fake.word(ext_word_list = ['Margherita', 'Pepperoni', 'Hawaiian', 'BBQ Chicken'
+                                              , 'Chicken Periperi', 'Chicken Tikka', 'Boerewors']),
             ingredients = fake.sentence(nb_words=10)
         )
 
@@ -30,7 +31,7 @@ with app.app_context():
         restaurant_pizza = RestaurantPizza(
             pizza_id =randint(1, 10),
             restaurant_id = randint(1, 10),
-            price = randint(1, 1000)
+            price = randint(1, 30)
         )
 
         db.session.add(restaurant_pizza)
