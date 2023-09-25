@@ -33,7 +33,7 @@ cd Phase-4-Week-1-Code-Challenge
 cd lib
 ```
 * Run the application:
-  ```bash
+```bash
 python run.py
 ```
 * Running the tests
