@@ -49,8 +49,8 @@ Run the automated tests for this system using Postman or Insomnia.
 * POST /restaurant_pizzas: Adds a new restaurant and pizza to the list.
 
 ### Built With
-Flask - The web framework used
-Flask_SQLAlchemy - SQL Toolkit and ORM
+- Flask - The web framework used
+- Flask_SQLAlchemy - SQL Toolkit and ORM
 
 ### Authors
 Jeff Etale - jeff.etale@moringaschool.com
