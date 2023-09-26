@@ -15,7 +15,6 @@ parser.add_argument('restaurant_id')
 class RestaurantList(Resource):
     def get(self):
         restaurants = Restaurant.query.all()
-        print("=====", restaurants)
         return ([serialize_restaurant(restaurant) for restaurant in restaurants])
 
 class RestaurantData(Resource):
@@ -36,7 +35,7 @@ class RestaurantData(Resource):
         db.session.delete(restaurant)
         db.session.commit()
 
-        return '', 204
+        return '{"message": "Restaurant deleted successfully"}', 204
     
 
 class PizzaList(Resource):
