@@ -12,6 +12,11 @@ parser.add_argument('price')
 parser.add_argument('pizza_id')
 parser.add_argument('restaurant_id')
 
+class Home(Resource):
+    def get(self):
+        return {"Restaurant-Pizza API":
+              "Get json data of available restaurants, pizzas and their relations."
+               }
 class RestaurantList(Resource):
     def get(self):
         restaurants = Restaurant.query.all()
@@ -78,7 +83,7 @@ class RestaurantPizzaData(Resource):
 
         return serialize_pizza(pizza), 201
 
-    
+api.add_resource(Home, '/')    
 api.add_resource(RestaurantList, "/restaurants")
 api.add_resource(RestaurantData, "/restaurants/<int:id>")
 api.add_resource(PizzaList, "/pizzas")
