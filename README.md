@@ -30,12 +30,12 @@ pip install -r requirements.txt
 * Navigate to the project code:
 ```bash
 cd Phase-4-Week-1-Code-Challenge
-cd lib
 ```
 * Run the application:
 ```bash
 python run.py
 ```
+and click on the link created in the terminal e.g http://127.0.0.1:3000   or access the deployed link which is https://p-4-week-1-challenge.onrender.com/
 * Running the tests
 Run the automated tests for this system using Postman or Insomnia.
 
@@ -47,6 +47,14 @@ Run the automated tests for this system using Postman or Insomnia.
 * GET /pizzas/<int:id>: Returns a single pizza by ID.
 * GET /restaurant_pizzas: Returns a list of all restaurant-pizza relationships.
 * POST /restaurant_pizzas: Adds a new restaurant and pizza to the list.
+
+### Web Browser Interaction
+You can view a json response of all the resstaurants, pizzas and the restaurant-pizza relationships on the web browser by visiting https://p-4-week-1-challenge.onrender.com/
+
+* https://p-4-week-1-challenge.onrender.com/restaurants - Get all the restaurants. Add an id at the end of the url to get a single restaurant.
+* https://p-4-week-1-challenge.onrender.com/pizzas - Get all the pizzas. Add an id at the end of the url to get a single pizza.
+* https://p-4-week-1-challenge.onrender.com/restaurant_pizzas - Get all the restaurant-pizzas relationships.
+
 
 ### Built With
 - Flask - The web framework used.
