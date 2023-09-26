@@ -34,7 +34,8 @@ cd Phase-4-Week-1-Code-Challenge
 * Run the application:
 ```bash
 python run.py
-``` and click on the link created in the terminal e.g http://127.0.0.1:3000   or access the deployed link which is https://p-4-week-1-challenge.onrender.com/
+```
+Click on the link created in the terminal e.g. http://127.0.0.1:3000   or access the deployed link which is https://p-4-week-1-challenge.onrender.com/
 * Running the tests
 Run the automated tests for this system using Postman or Insomnia.
 
